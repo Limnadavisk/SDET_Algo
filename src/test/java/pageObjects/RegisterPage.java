@@ -27,7 +27,8 @@ public class RegisterPage {
 	@FindBy(xpath = "//input [@ type = 'submit']") WebElement registerbtn;	
 	@FindBy(xpath="//div[@role='alert']") WebElement alertmsg;
 	@FindBy(xpath = "//*[contains(text(),'Login')]") WebElement Loginbtn;
-	@FindBy(xpath="//a[@href='/logout']")WebElement signoutBtn;
+	//@FindBy(xpath="//a[@href='/logout']")WebElement signoutBtn;
+	@FindBy(linkText="Sign out")WebElement signoutBtn;
 	public RegisterPage() {
 
 		PageFactory.initElements(driver, this);
@@ -121,7 +122,7 @@ public class RegisterPage {
 		return driver.getTitle();
 	}
 	public void openSiginurl() {
-		driver.navigate().to(loginUrl);;
+		driver.navigate().to(loginUrl);
 		PageFactory.initElements(driver, this);
 	}
 	public void clickLogin() {
@@ -132,7 +133,7 @@ public class RegisterPage {
 		
 		signoutBtn.click();
 		PageFactory.initElements(driver, this);
-		driver.navigate();
+		//driver.navigate().to(HomeUrl);
 	}
 	public String getlogoutalertmsg() {
 		String logoutalertmsg = alertmsg.getText();
